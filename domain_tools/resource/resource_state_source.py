@@ -16,6 +16,7 @@ class ResourceState():
     real_power: float
     reactive_power: float
     node: int = None
+    state_of_charge: float = None
 
 class CsvFileError(Exception):
     '''
