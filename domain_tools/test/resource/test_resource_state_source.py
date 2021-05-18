@@ -27,15 +27,15 @@ class TestDataSource(unittest.TestCase):
         scenarios = [
             { 'file': 'load1.csv',
               'expected': [
-                  ResourceState( real_power = -10, reactive_power = -1, bus = 'bus1', node = None ),
-                  ResourceState( real_power = -11.5, reactive_power = -2.0, bus = 'bus1', node = 1 ),
-                  ResourceState( real_power = -9.1, reactive_power = 0, bus = 'bus1', node = 2 )
+                  ResourceState( real_power = -10, reactive_power = -1, customerid = 'GridA-1', node = None ),
+                  ResourceState( real_power = -11.5, reactive_power = -2.0, customerid = 'GridA-1', node = 1 ),
+                  ResourceState( real_power = -9.1, reactive_power = 0, customerid = 'GridA-1', node = 2 )
                   ] },
             # contains an Epoch field which is not used but should be allowed for human convenience
             { 'file': 'generator1.csv',
               'expected': [
-                  ResourceState( real_power = 4.5, reactive_power = 0.5, bus = 'bus1' ),
-                  ResourceState( real_power = 7.5, reactive_power = 1.0, bus = 'bus1' )
+                  ResourceState( real_power = 4.5, reactive_power = 0.5, customerid = 'GridA-1' ),
+                  ResourceState( real_power = 7.5, reactive_power = 1.0, customerid = 'GridA-1' )
                   ] }
             ]
         
@@ -52,7 +52,7 @@ class TestDataSource(unittest.TestCase):
                 
     def testMissingColumns(self):
         '''
-        Check that missing RealPower, ReactivePower or Bus columns causes an exception.
+        Check that missing RealPower, ReactivePower or CustomerId columns causes an exception.
         '''
         # each file has a different missing column
         files = [ 'invalid_fields1.csv', 'invalid_fields2.csv', 'invalid_fields3.csv' ]

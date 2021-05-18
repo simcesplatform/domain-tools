@@ -12,7 +12,7 @@ class ResourceState():
     Represents resource state read from the csv file.
     ''' 
     
-    bus: str
+    customerid: str
     real_power: float
     reactive_power: float
     node: int = None
@@ -45,7 +45,7 @@ class CsvFileResourceStateSource():
         
         self._csv = csv.DictReader( self._file, delimiter = delimiter )
         # check that self._csv.fieldnames has required fields
-        required_fields = set( [ 'RealPower', 'ReactivePower', 'Bus' ])
+        required_fields = set( [ 'RealPower', 'ReactivePower', 'CustomerId' ])
         fields = set( self._csv.fieldnames )
         # missing contains fields that do not exist or is empty if all fields exist.
         missing = required_fields.difference( fields )
@@ -76,7 +76,7 @@ class CsvFileResourceStateSource():
         validation_info = [
             ( 'RealPower', 'real_power', float, False ),
             ( 'ReactivePower', 'reactive_power', float, False ),
-            ( 'Bus', 'bus', str, False ),
+            ( 'CustomerId', 'customerid', str, False ),
             ( 'Node', 'node', int, True )
         ]
         
