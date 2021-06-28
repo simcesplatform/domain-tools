@@ -1,4 +1,4 @@
-ReactivePower,Bus,Node
--10,bus1,
--11.5,bus1,1
--9.1,bus1,2
+ReactivePower,CustomerId,Node
+-10,GridA-1,
+-11.5,GridA-1,1
+-9.1,GridA-1,2
