@@ -10,9 +10,9 @@ import csv
 class ResourceState():
     '''
     Represents resource state read from the csv file.
-    '''
-
-    customer_id: str
+    ''' 
+    
+    customerid: str
     real_power: float
     reactive_power: float
     node: int = None
@@ -76,7 +76,7 @@ class CsvFileResourceStateSource():
         validation_info = [
             ( 'RealPower', 'real_power', float, False ),
             ( 'ReactivePower', 'reactive_power', float, False ),
-            ( 'CustomerId', 'customer_id', str, False ),
+            ( 'CustomerId', 'customerid', str, False ),
             ( 'Node', 'node', int, True )
         ]
 
